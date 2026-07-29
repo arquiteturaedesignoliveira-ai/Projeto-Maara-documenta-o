@@ -1,1 +1,2719 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Projeto MAARA | Caderno Conceitual de Arquitetura</title>
+
+<meta name="description" content="Caderno conceitual do Projeto MAARA, apresentando o processo de diagnóstico, conceito, estratégias projetuais e proposta de requalificação dos espaços.">
+
+<style>
+
+:root{
+
+--cor-fundo:#f8f7f4;
+--cor-superficie:#ffffff;
+
+--cor-texto:#2f2f2f;
+--cor-secundaria:#6f6f6f;
+
+--cor-borda:#dddddd;
+
+--cor-destaque:#70503C;
+
+--largura:1080px;
+
+}
+
+*{
+
+margin:0;
+padding:0;
+box-sizing:border-box;
+
+}
+
+html{
+
+scroll-behavior:smooth;
+
+}
+
+body{
+
+background:var(--cor-fundo);
+
+color:var(--cor-texto);
+
+font-family:Georgia,"Times New Roman",serif;
+
+font-size:18px;
+
+line-height:1.8;
+
+}
+
+main{
+
+max-width:var(--largura);
+
+margin:auto;
+
+padding:90px 60px;
+
+}
+
+section{
+
+margin-bottom:140px;
+
+}
+
+header{
+
+margin-bottom:100px;
+
+}
+
+footer{
+
+margin-top:120px;
+
+padding-top:50px;
+
+border-top:1px solid var(--cor-borda);
+
+color:var(--cor-secundaria);
+
+font-size:15px;
+
+}
+
+h1{
+
+font-size:58px;
+
+font-weight:400;
+
+line-height:1.2;
+
+margin-bottom:30px;
+
+}
+
+h2{
+
+font-size:38px;
+
+font-weight:400;
+
+margin-bottom:35px;
+
+padding-bottom:18px;
+
+border-bottom:1px solid var(--cor-borda);
+
+}
+
+h3{
+
+font-size:28px;
+
+font-weight:500;
+
+margin-bottom:20px;
+
+margin-top:50px;
+
+}
+
+h4{
+
+font-size:22px;
+
+margin-bottom:18px;
+
+}
+
+p{
+
+margin-bottom:22px;
+
+}
+
+small{
+
+color:var(--cor-secundaria);
+
+}
+
+strong{
+
+font-weight:600;
+
+}
+
+hr{
+
+margin:90px 0;
+
+border:none;
+
+border-top:1px solid var(--cor-borda);
+
+}
+
+blockquote{
+
+margin:60px 0;
+
+padding:35px;
+
+background:white;
+
+border-left:4px solid var(--cor-destaque);
+
+font-size:26px;
+
+font-style:italic;
+
+line-height:1.5;
+
+}
+
+ul{
+
+padding-left:22px;
+
+margin-bottom:25px;
+
+}
+
+li{
+
+margin-bottom:10px;
+
+}
+
+table{
+
+width:100%;
+
+border-collapse:collapse;
+
+margin-top:30px;
+
+}
+
+th{
+
+text-align:left;
+
+padding:15px;
+
+border-bottom:2px solid var(--cor-borda);
+
+}
+
+td{
+
+padding:15px;
+
+border-bottom:1px solid var(--cor-borda);
+
+}
+
+img{
+
+display:block;
+
+max-width:100%;
+
+height:auto;
+
+}
+
+.hero-image{
+
+width:100%;
+
+height:620px;
+
+background:#d9d9d9;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+margin:40px 0;
+
+color:#666;
+
+font-size:18px;
+
+}
+
+.image-large{
+
+width:100%;
+
+height:520px;
+
+background:#dddddd;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+margin:40px 0;
+
+color:#777;
+
+}
+
+.image-medium{
+
+width:100%;
+
+height:360px;
+
+background:#dddddd;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+margin:35px 0;
+
+color:#777;
+
+}
+
+.image-small{
+
+width:100%;
+
+height:240px;
+
+background:#dddddd;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+margin:25px 0;
+
+color:#777;
+
+}
+
+.grid-2{
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+gap:40px;
+
+margin:40px 0;
+
+}
+
+.grid-3{
+
+display:grid;
+
+grid-template-columns:repeat(3,1fr);
+
+gap:30px;
+
+margin:40px 0;
+
+}
+
+.card{
+
+background:white;
+
+padding:30px;
+
+border:1px solid var(--cor-borda);
+
+}
+
+.caption{
+
+margin-top:12px;
+
+font-size:15px;
+
+color:var(--cor-secundaria);
+
+font-style:italic;
+
+}
+
+.numero{
+
+font-size:70px;
+
+color:#d0d0d0;
+
+margin-bottom:10px;
+
+line-height:1;
+
+}
+
+@media (max-width:900px){
+
+main{
+
+padding:50px 30px;
+
+}
+
+h1{
+
+font-size:42px;
+
+}
+
+h2{
+
+font-size:32px;
+
+}
+
+.grid-2,
+.grid-3{
+
+grid-template-columns:1fr;
+
+}
+
+.hero-image{
+
+height:380px;
+
+}
+
+.image-large{
+
+height:340px;
+
+}
+
+.image-medium{
+
+height:260px;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<main>
+
+<!-- ========================================================= -->
+<!-- BLOCO 02 — CAPA DO PROJETO                               -->
+<!-- ========================================================= -->
+
+<header>
+
+    <p style="text-transform:uppercase;letter-spacing:2px;color:#70503C;font-size:14px;margin-bottom:18px;">
+        Caderno Conceitual de Arquitetura
+    </p>
+
+    <h1>
+        Projeto MAARA
+    </h1>
+
+    <p style="font-size:26px;max-width:820px;line-height:1.5;margin-bottom:40px;">
+        Requalificação de espaços existentes para apoiar ações de regeneração ambiental,
+        educação, pesquisa e fortalecimento das atividades desenvolvidas pelo Projeto MAARA.
+    </p>
+
+    <div class="hero-image">
+
+        Fotografia principal do Projeto MAARA
+
+    </div>
+
+    <p class="caption">
+        Vista geral da propriedade que abriga as atividades do Projeto MAARA.
+    </p>
+
+</header>
+
+<section id="resumo">
+
+<h2>Resumo</h2>
+
+<p>
+
+Este documento apresenta o estudo arquitetônico desenvolvido para a requalificação dos espaços
+existentes do Projeto MAARA. O trabalho parte da compreensão das necessidades atuais da instituição,
+da leitura das edificações existentes e da identificação das potencialidades do local para propor
+intervenções capazes de ampliar sua capacidade de uso, melhorar o conforto dos ambientes e fortalecer
+as atividades voltadas à regeneração ambiental.
+
+</p>
+
+<p>
+
+Mais do que um conjunto de reformas, a proposta busca estruturar uma infraestrutura capaz de apoiar
+oficinas, atividades educativas, produção artesanal, pesquisa, convivência e acolhimento de
+voluntários, respeitando as características do lugar e priorizando soluções construtivas simples,
+econômicas e executáveis em etapas.
+
+</p>
+
+<blockquote>
+
+"A arquitetura atua como suporte para as pessoas, para os processos e para as relações que tornam
+possível a regeneração do território."
+
+</blockquote>
+
+<div class="grid-2">
+
+<div>
+
+<h3>Objetivos do estudo</h3>
+
+<ul>
+
+<li>Compreender o funcionamento atual do espaço.</li>
+
+<li>Identificar limitações físicas das edificações existentes.</li>
+
+<li>Propor ambientes mais funcionais.</li>
+
+<li>Valorizar estruturas já existentes.</li>
+
+<li>Reduzir desperdícios e custos de execução.</li>
+
+<li>Permitir futuras ampliações sem comprometer o conjunto.</li>
+
+</ul>
+
+</div>
+
+<div>
+
+<h3>Escopo</h3>
+
+<ul>
+
+<li>Diagnóstico arquitetônico.</li>
+
+<li>Conceito projetual.</li>
+
+<li>Estratégias de intervenção.</li>
+
+<li>Estudos de organização dos ambientes.</li>
+
+<li>Diretrizes de materialidade.</li>
+
+<li>Estimativa preliminar de investimentos.</li>
+
+</ul>
+
+</div>
+
+</div>
+
+<hr>
+
+<section>
+
+<h2>Como ler este documento</h2>
+
+<p>
+
+Este caderno foi organizado seguindo a mesma lógica utilizada durante o desenvolvimento do projeto.
+Cada capítulo apresenta uma etapa do processo de decisão, desde a compreensão do contexto até a
+definição das estratégias arquitetônicas adotadas. O objetivo não é apenas apresentar uma proposta
+final, mas registrar o raciocínio que orientou cada escolha realizada ao longo do estudo.
+
+</p>
+
+<div class="card">
+
+<h3>Estrutura do documento</h3>
+
+<ol style="padding-left:22px;line-height:2;">
+
+<li>Sobre o Projeto MAARA</li>
+
+<li>Contexto</li>
+
+<li>Diagnóstico</li>
+
+<li>Conceito Arquitetônico</li>
+
+<li>Estratégias Projetuais</li>
+
+<li>Processo de Projeto</li>
+
+<li>Ambientes</li>
+
+<li>Materialidade</li>
+
+<li>Estimativa Preliminar</li>
+
+<li>Considerações Finais</li>
+
+</ol>
+
+</div>
+
+</section>
+
+<!-- ========================================================= -->
+<!-- BLOCO 03 — SOBRE O PROJETO MAARA                          -->
+<!-- ========================================================= -->
+
+<section id="sobre">
+
+    <h2>Sobre o Projeto MAARA</h2>
+
+    <p>
+
+        O Projeto MAARA é uma iniciativa voltada à regeneração ambiental, à educação e ao fortalecimento
+        da relação entre pessoas e natureza. Suas atividades unem práticas agrícolas regenerativas,
+        produção artesanal, capacitação, pesquisa, voluntariado e ações comunitárias, criando um espaço
+        onde o aprendizado acontece por meio da experiência e do contato direto com o território.
+
+    </p>
+
+    <p>
+
+        Ao longo dos últimos anos, diferentes construções foram sendo incorporadas à propriedade para
+        atender necessidades imediatas. Embora tenham permitido o funcionamento das atividades, essas
+        adaptações ocorreram de forma gradual e sem um planejamento arquitetônico integrado, resultando
+        em espaços com limitações de uso, baixa flexibilidade e pouca conexão entre si.
+
+    </p>
+
+    <div class="image-large">
+
+        Fotografia geral da propriedade
+
+    </div>
+
+    <p class="caption">
+        Vista da área onde se concentram as principais atividades desenvolvidas pelo Projeto MAARA.
+    </p>
+
+</section>
+
+<hr>
+
+<section id="missao">
+
+    <h2>Arquitetura como infraestrutura para regeneração</h2>
+
+    <p>
+
+        Neste projeto, a arquitetura não é entendida apenas como construção física, mas como uma
+        infraestrutura capaz de apoiar pessoas, processos e experiências. Cada ambiente proposto foi
+        pensado para ampliar a capacidade operacional do MAARA, oferecendo condições adequadas para o
+        desenvolvimento de oficinas, encontros, produção, pesquisa e acolhimento.
+
+    </p>
+
+    <blockquote>
+
+        A arquitetura deixa de ser o objetivo final e passa a ser o suporte que possibilita novas formas
+        de aprender, produzir e conviver.
+
+    </blockquote>
+
+    <p>
+
+        Essa abordagem orienta todas as decisões apresentadas neste documento. As intervenções não
+        procuram substituir completamente as estruturas existentes, mas compreender seu potencial,
+        qualificá-las e permitir que continuem evoluindo ao longo do tempo.
+
+    </p>
+
+</section>
+
+<hr>
+
+<section id="premissas">
+
+    <h2>Premissas do estudo</h2>
+
+    <div class="grid-2">
+
+        <div class="card">
+
+            <div class="numero">01</div>
+
+            <h3>Valorizar o existente</h3>
+
+            <p>
+
+                Priorizar o reaproveitamento das edificações e estruturas já presentes na propriedade,
+                reduzindo desperdícios e preservando a história construída ao longo do desenvolvimento
+                do projeto.
+
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <div class="numero">02</div>
+
+            <h3>Construir em etapas</h3>
+
+            <p>
+
+                Organizar as intervenções de forma independente, permitindo que sejam executadas de
+                acordo com a disponibilidade financeira e operacional do projeto.
+
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <div class="numero">03</div>
+
+            <h3>Flexibilidade</h3>
+
+            <p>
+
+                Desenvolver ambientes capazes de receber diferentes atividades ao longo do tempo,
+                reduzindo a necessidade de adaptações futuras.
+
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <div class="numero">04</div>
+
+            <h3>Simplicidade construtiva</h3>
+
+            <p>
+
+                Adotar soluções compatíveis com técnicas construtivas acessíveis, materiais disponíveis
+                regionalmente e sistemas de fácil manutenção.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<hr>
+
+<section id="objetivos">
+
+    <h2>Objetivos arquitetônicos</h2>
+
+    <p>
+
+        A proposta busca transformar o conjunto existente em uma estrutura mais eficiente, confortável
+        e coerente com as atividades desenvolvidas pelo MAARA. O estudo concentra-se em organizar os
+        fluxos de trabalho, melhorar a qualidade espacial dos ambientes e criar condições para que o
+        projeto continue crescendo sem perder sua identidade.
+
+    </p>
+
+    <div class="image-medium">
+
+        Diagrama geral das relações entre os ambientes
+
+    </div>
+
+    <p class="caption">
+        Esquema conceitual ilustrando a integração entre os diferentes espaços do projeto.
+    </p>
+
+</section>
+
+<!-- ========================================================= -->
+<!-- BLOCO 04 — CONTEXTO E DIAGNÓSTICO                         -->
+<!-- ========================================================= -->
+
+<section id="contexto">
+
+    <h2>Contexto</h2>
+
+    <p>
+
+        O Projeto MAARA está inserido em um ambiente rural onde as atividades acontecem em contato direto
+        com a paisagem, a vegetação e os processos naturais do território. As edificações existentes foram
+        sendo construídas ou adaptadas ao longo do tempo para responder às necessidades imediatas do projeto,
+        formando um conjunto heterogêneo de espaços destinados à produção, encontros, oficinas e apoio às
+        atividades diárias.
+
+    </p>
+
+    <p>
+
+        Apesar de atenderem às demandas iniciais, esses ambientes apresentam diferentes padrões
+        construtivos, níveis de conservação e condições de uso. A ausência de um planejamento integrado
+        dificulta a organização das atividades e limita o potencial de expansão do projeto.
+
+    </p>
+
+    <div class="image-large">
+
+        Mapa geral da propriedade ou fotografia aérea
+
+    </div>
+
+    <p class="caption">
+        Implantação geral da área de intervenção e relação entre as edificações existentes.
+    </p>
+
+</section>
+
+<hr>
+
+<section id="levantamento">
+
+    <h2>Levantamento das edificações</h2>
+
+    <p>
+
+        O levantamento técnico teve como objetivo compreender a configuração atual dos espaços,
+        identificar suas potencialidades e registrar as limitações físicas que influenciam diretamente
+        o funcionamento das atividades desenvolvidas pelo MAARA.
+
+    </p>
+
+    <div class="grid-2">
+
+        <div class="card">
+
+            <h3>Oficina</h3>
+
+            <p>
+
+                Espaço utilizado para armazenamento de ferramentas, manutenção e atividades de apoio.
+                Possui estrutura consolidada, porém apresenta limitações de organização, iluminação e
+                áreas de trabalho.
+
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>Ateliê</h3>
+
+            <p>
+
+                Ambiente destinado à produção artesanal e realização de oficinas. Necessita de melhor
+                organização do mobiliário, adequação das bancadas e ampliação da infraestrutura de apoio.
+
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>Coworking</h3>
+
+            <p>
+
+                Espaço de trabalho administrativo e reuniões. A configuração atual não responde
+                adequadamente às necessidades de concentração, colaboração e atendimento.
+
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>Sótão</h3>
+
+            <p>
+
+                Área com potencial para receber novas funções. A intervenção busca transformar um espaço
+                subutilizado em ambiente confortável para hospedagem, estudos ou apoio às atividades do
+                projeto.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<hr>
+
+<section id="diagnostico">
+
+    <h2>Diagnóstico</h2>
+
+    <p>
+
+        A análise do conjunto permitiu identificar aspectos que orientaram todas as decisões projetuais.
+        Em vez de substituir integralmente as estruturas existentes, optou-se por potencializar suas
+        qualidades e corrigir os pontos que comprometem o funcionamento cotidiano.
+
+    </p>
+
+    <div class="grid-2">
+
+        <div>
+
+            <h3>Potencialidades</h3>
+
+            <ul>
+
+                <li>Edificações existentes em condições de reaproveitamento.</li>
+
+                <li>Boa relação entre arquitetura e paisagem.</li>
+
+                <li>Disponibilidade de áreas para futuras ampliações.</li>
+
+                <li>Identidade construída ao longo da história do projeto.</li>
+
+                <li>Possibilidade de execução gradual das intervenções.</li>
+
+            </ul>
+
+        </div>
+
+        <div>
+
+            <h3>Desafios</h3>
+
+            <ul>
+
+                <li>Ambientes pouco integrados.</li>
+
+                <li>Falta de organização funcional.</li>
+
+                <li>Infraestrutura insuficiente para algumas atividades.</li>
+
+                <li>Conforto térmico e lumínico limitado em determinados espaços.</li>
+
+                <li>Mobiliário improvisado e ausência de padronização.</li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</section>
+
+<hr>
+
+<section id="diretrizes">
+
+    <h2>Diretrizes estabelecidas a partir do diagnóstico</h2>
+
+    <div class="card">
+
+        <ol style="padding-left:22px;line-height:2;">
+
+            <li>Requalificar os espaços existentes antes de considerar novas construções.</li>
+
+            <li>Organizar fluxos de circulação e funcionamento entre os ambientes.</li>
+
+            <li>Priorizar soluções de baixo custo e fácil execução.</li>
+
+            <li>Valorizar materiais naturais e sistemas construtivos simples.</li>
+
+            <li>Permitir ampliações futuras sem comprometer a proposta original.</li>
+
+            <li>Melhorar conforto ambiental, iluminação e ventilação.</li>
+
+            <li>Criar espaços flexíveis capazes de receber diferentes atividades.</li>
+
+        </ol>
+
+    </div>
+
+</section>
+
+<!-- ========================================================= -->
+<!-- BLOCO 05 — CONCEITO ARQUITETÔNICO                         -->
+<!-- ========================================================= -->
+
+<section id="conceito">
+
+    <h2>Conceito Arquitetônico</h2>
+
+    <p>
+
+        O projeto parte da compreensão de que a arquitetura deve apoiar as atividades desenvolvidas pelo
+        MAARA sem competir com elas. Em vez de criar uma linguagem formal protagonista, a proposta procura
+        construir uma infraestrutura discreta, robusta e adaptável, capaz de acompanhar o crescimento do
+        projeto ao longo do tempo.
+
+    </p>
+
+    <p>
+
+        As decisões arquitetônicas procuram estabelecer equilíbrio entre permanência e transformação.
+        Permanência ao reconhecer o valor das construções existentes, da paisagem e da história construída
+        pelo projeto. Transformação ao reorganizar os espaços, melhorar seu desempenho e permitir novos
+        usos sem perder a identidade do lugar.
+
+    </p>
+
+    <div class="image-large">
+
+        Croqui conceitual ou perspectiva geral do projeto
+
+    </div>
+
+    <p class="caption">
+        Diagrama conceitual representando a integração entre arquitetura, paisagem e atividades do Projeto MAARA.
+    </p>
+
+</section>
+
+<hr>
+
+<section id="partido">
+
+    <h2>Partido Arquitetônico</h2>
+
+    <p>
+
+        O partido arquitetônico organiza as intervenções a partir do reaproveitamento das estruturas
+        existentes, reduzindo demolições e priorizando adaptações que ampliem sua funcionalidade.
+        Cada ambiente recebe apenas as transformações necessárias para atender às novas demandas,
+        preservando aquilo que já apresenta bom desempenho.
+
+    </p>
+
+    <p>
+
+        A proposta estabelece uma linguagem arquitetônica única para todas as intervenções,
+        utilizando materiais recorrentes, soluções construtivas simples e elementos capazes de
+        criar unidade visual entre edifícios construídos em momentos diferentes.
+
+    </p>
+
+    <div class="grid-2">
+
+        <div class="card">
+
+            <h3>Reutilizar</h3>
+
+            <p>
+
+                Aproveitar ao máximo as estruturas existentes, reduzindo custos, desperdícios e impactos
+                ambientais decorrentes de novas construções.
+
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>Qualificar</h3>
+
+            <p>
+
+                Melhorar iluminação, ventilação, conforto ambiental, organização espacial e infraestrutura
+                dos ambientes atualmente utilizados.
+
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>Integrar</h3>
+
+            <p>
+
+                Criar relações mais claras entre oficina, ateliê, coworking, sótão e áreas externas,
+                favorecendo circulação e colaboração entre as atividades.
+
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>Preparar</h3>
+
+            <p>
+
+                Permitir que futuras ampliações ocorram sem descaracterizar a proposta arquitetônica
+                nem comprometer o funcionamento cotidiano do conjunto.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<hr>
+
+<section id="principios">
+
+    <h2>Princípios Projetuais</h2>
+
+    <div class="grid-3">
+
+        <div class="card">
+
+            <h3>Simplicidade</h3>
+
+            <p>
+
+                Soluções construtivas objetivas, compatíveis com a realidade financeira e operacional do projeto.
+
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>Durabilidade</h3>
+
+            <p>
+
+                Materiais resistentes, de fácil manutenção e capazes de suportar o uso intenso dos ambientes.
+
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>Flexibilidade</h3>
+
+            <p>
+
+                Espaços preparados para receber diferentes atividades ao longo do tempo.
+
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>Conforto</h3>
+
+            <p>
+
+                Melhor aproveitamento da iluminação natural, ventilação cruzada e proteção climática.
+
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>Identidade</h3>
+
+            <p>
+
+                Linguagem arquitetônica coerente com os valores do MAARA e com a paisagem rural.
+
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>Regeneração</h3>
+
+            <p>
+
+                Cada intervenção procura fortalecer os processos ambientais, sociais e produtivos já existentes.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<hr>
+
+<section id="visao">
+
+    <h2>Visão Geral da Proposta</h2>
+
+    <blockquote>
+
+        O projeto não propõe apenas reformar edifícios. Propõe construir uma infraestrutura capaz de
+        sustentar pessoas, experiências e processos de regeneração ao longo do tempo.
+
+    </blockquote>
+
+    <div class="image-medium">
+
+        Diagrama geral do conceito arquitetônico
+
+    </div>
+
+    <p class="caption">
+        Esquema ilustrando a relação entre os ambientes e as principais estratégias adotadas.
+    </p>
+
+</section>
+
+<!-- ========================================================= -->
+<!-- BLOCO 06 — ESTRATÉGIAS PROJETUAIS                         -->
+<!-- ========================================================= -->
+
+<section id="estrategias">
+
+<h2>Estratégias Projetuais</h2>
+
+<p>
+
+As estratégias apresentadas neste capítulo traduzem o conceito arquitetônico em decisões práticas de
+projeto. Cada intervenção foi definida buscando equilíbrio entre viabilidade econômica, facilidade de
+execução, desempenho dos ambientes e capacidade de crescimento futuro. Em vez de grandes transformações,
+a proposta concentra esforços em intervenções pontuais capazes de produzir ganhos significativos na
+qualidade dos espaços.
+
+</p>
+
+</section>
+
+<hr>
+
+<section>
+
+<div class="numero">01</div>
+
+<h3>Requalificação antes da substituição</h3>
+
+<p>
+
+O projeto parte do princípio de que as estruturas existentes representam um patrimônio construído que
+deve ser valorizado. Sempre que possível, optou-se pelo reaproveitamento das edificações atuais,
+reduzindo demolições, desperdício de materiais e custos de execução.
+
+</p>
+
+<p>
+
+Essa estratégia permite preservar a memória do lugar, diminuir impactos ambientais e concentrar os
+investimentos na melhoria efetiva dos ambientes.
+
+</p>
+
+<div class="image-medium">
+
+Fotografia das edificações existentes
+
+</div>
+
+</section>
+
+<hr>
+
+<section>
+
+<div class="numero">02</div>
+
+<h3>Execução em etapas</h3>
+
+<p>
+
+O conjunto foi organizado para que cada ambiente possa ser executado de maneira independente,
+permitindo que as intervenções acompanhem a disponibilidade financeira do projeto.
+
+</p>
+
+<p>
+
+Essa lógica reduz riscos durante a execução e permite que novas melhorias sejam incorporadas
+gradualmente, sem interromper o funcionamento cotidiano das atividades desenvolvidas pelo MAARA.
+
+</p>
+
+<div class="image-medium">
+
+Diagrama de fases de implantação
+
+</div>
+
+</section>
+
+<hr>
+
+<section>
+
+<div class="numero">03</div>
+
+<h3>Materialidade simples e durável</h3>
+
+<p>
+
+A seleção de materiais prioriza disponibilidade regional, facilidade de manutenção e desempenho
+adequado para um contexto rural. Madeira, OSB, concreto aparente, estruturas metálicas simples e
+acabamentos de baixa manutenção compõem uma linguagem arquitetônica coerente em todo o conjunto.
+
+</p>
+
+<p>
+
+A repetição desses elementos contribui para criar unidade visual entre edificações executadas em
+momentos diferentes e facilita futuras ampliações.
+
+</p>
+
+<div class="image-medium">
+
+Painel de materiais do projeto
+
+</div>
+
+</section>
+
+<hr>
+
+<section>
+
+<div class="numero">04</div>
+
+<h3>Flexibilidade dos ambientes</h3>
+
+<p>
+
+Os espaços foram concebidos para receber diferentes configurações de uso ao longo do tempo. Bancadas,
+mobiliários e áreas de apoio foram organizados de forma modular, permitindo adaptações sem necessidade
+de reformas estruturais.
+
+</p>
+
+<p>
+
+Essa flexibilidade amplia a vida útil dos ambientes e acompanha a evolução das atividades do MAARA.
+
+</p>
+
+<div class="image-medium">
+
+Esquema de organização dos ambientes
+
+</div>
+
+</section>
+
+<hr>
+
+<section>
+
+<div class="numero">05</div>
+
+<h3>Conforto ambiental</h3>
+
+<p>
+
+As intervenções buscam melhorar iluminação natural, ventilação cruzada e proteção térmica dos espaços.
+A reorganização das aberturas, o aproveitamento da iluminação zenital em áreas específicas e o uso de
+materiais compatíveis com o clima local contribuem para ambientes mais confortáveis e eficientes.
+
+</p>
+
+<p>
+
+Essas soluções reduzem a dependência de sistemas artificiais e melhoram as condições de permanência dos
+usuários durante as diferentes atividades desenvolvidas ao longo do ano.
+
+</p>
+
+<div class="image-medium">
+
+Diagrama de iluminação e ventilação
+
+</div>
+
+</section>
+
+<hr>
+
+<section>
+
+<div class="numero">06</div>
+
+<h3>Integração entre arquitetura e paisagem</h3>
+
+<p>
+
+As novas intervenções procuram estabelecer uma relação contínua entre os ambientes internos e os
+espaços externos. A paisagem deixa de ser apenas o entorno das edificações e passa a integrar a
+experiência cotidiana dos usuários, fortalecendo o vínculo entre arquitetura, natureza e atividades de
+regeneração ambiental.
+
+</p>
+
+<div class="image-large">
+
+Perspectiva geral mostrando a integração entre edificações e paisagem
+
+</div>
+
+<p class="caption">
+
+As estratégias projetuais procuram construir uma infraestrutura discreta, durável e preparada para
+acompanhar a evolução do Projeto MAARA ao longo do tempo.
+
+</p>
+
+</section>
+
+<!-- ========================================================= -->
+<!-- BLOCO 07 — PROCESSO DE PROJETO                            -->
+<!-- ========================================================= -->
+
+<section id="processo">
+
+<h2>Processo de Projeto</h2>
+
+<p>
+
+O desenvolvimento deste estudo foi conduzido de forma progressiva, buscando compreender as necessidades
+do Projeto MAARA antes da definição de qualquer solução arquitetônica. O processo priorizou a observação
+do espaço existente, o diálogo sobre as atividades desenvolvidas e a construção de soluções compatíveis
+com a realidade operacional e financeira da instituição.
+
+</p>
+
+<p>
+
+Mais do que produzir desenhos técnicos, o objetivo foi desenvolver uma proposta coerente com o modo
+como o MAARA funciona atualmente e com a forma como pretende evoluir nos próximos anos.
+
+</p>
+
+</section>
+
+<hr>
+
+<section>
+
+<div class="numero">01</div>
+
+<h3>Imersão e Levantamento</h3>
+
+<p>
+
+A primeira etapa consistiu na visita técnica à propriedade, no registro fotográfico das edificações,
+na identificação das atividades realizadas em cada ambiente e no levantamento das principais demandas
+apresentadas pela equipe do projeto.
+
+</p>
+
+<p>
+
+Esse momento permitiu compreender como os espaços são utilizados diariamente, quais adaptações já foram
+realizadas ao longo do tempo e quais limitações interferem diretamente no funcionamento das atividades.
+
+</p>
+
+<div class="image-large">
+
+Fotografias do levantamento técnico
+
+</div>
+
+<p class="caption">
+
+Registro das condições existentes durante o levantamento arquitetônico.
+
+</p>
+
+</section>
+
+<hr>
+
+<section>
+
+<div class="numero">02</div>
+
+<h3>Diagnóstico</h3>
+
+<p>
+
+Com base nas informações coletadas, foi elaborado um diagnóstico das edificações existentes,
+identificando potencialidades, limitações físicas e oportunidades de intervenção.
+
+</p>
+
+<p>
+
+Essa análise orientou todas as decisões posteriores, evitando soluções genéricas e permitindo que cada
+proposta respondesse às características específicas do local.
+
+</p>
+
+<div class="grid-2">
+
+<div class="card">
+
+<h4>Aspectos positivos</h4>
+
+<ul>
+
+<li>Boa relação com a paisagem.</li>
+
+<li>Estruturas passíveis de reaproveitamento.</li>
+
+<li>Possibilidade de crescimento gradual.</li>
+
+<li>Ambientes com forte identidade.</li>
+
+</ul>
+
+</div>
+
+<div class="card">
+
+<h4>Aspectos a melhorar</h4>
+
+<ul>
+
+<li>Fluxos pouco organizados.</li>
+
+<li>Infraestrutura insuficiente.</li>
+
+<li>Iluminação limitada.</li>
+
+<li>Conforto térmico reduzido.</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</section>
+
+<hr>
+
+<section>
+
+<div class="numero">03</div>
+
+<h3>Estudos de Organização</h3>
+
+<p>
+
+Antes da definição do projeto, diferentes alternativas de organização espacial foram avaliadas para
+cada ambiente. Os estudos buscaram melhorar fluxos de circulação, posicionamento do mobiliário,
+aproveitamento das áreas existentes e integração entre as diferentes atividades.
+
+</p>
+
+<div class="image-large">
+
+Croquis, plantas e estudos preliminares
+
+</div>
+
+<p class="caption">
+
+Evolução dos estudos de layout e organização dos espaços.
+
+</p>
+
+</section>
+
+<hr>
+
+<section>
+
+<div class="numero">04</div>
+
+<h3>Desenvolvimento da Proposta</h3>
+
+<p>
+
+Após a consolidação do conceito arquitetônico, iniciou-se o desenvolvimento das soluções específicas
+para cada ambiente. Foram definidos materiais, mobiliários, intervenções construtivas, estratégias de
+iluminação, ventilação e organização funcional.
+
+</p>
+
+<p>
+
+Cada decisão foi avaliada considerando custo de execução, facilidade construtiva, manutenção e impacto
+sobre o funcionamento cotidiano do projeto.
+
+</p>
+
+<div class="image-large">
+
+Modelos tridimensionais e imagens do projeto
+
+</div>
+
+</section>
+
+<hr>
+
+<section>
+
+<div class="numero">05</div>
+
+<h3>Síntese do Processo</h3>
+
+<div class="card">
+
+<table>
+
+<tr>
+
+<th>Etapa</th>
+
+<th>Objetivo</th>
+
+</tr>
+
+<tr>
+
+<td>Imersão</td>
+
+<td>Compreender o funcionamento do espaço.</td>
+
+</tr>
+
+<tr>
+
+<td>Levantamento</td>
+
+<td>Registrar as condições existentes.</td>
+
+</tr>
+
+<tr>
+
+<td>Diagnóstico</td>
+
+<td>Identificar problemas e potencialidades.</td>
+
+</tr>
+
+<tr>
+
+<td>Estudos</td>
+
+<td>Testar alternativas de organização.</td>
+
+</tr>
+
+<tr>
+
+<td>Projeto</td>
+
+<td>Consolidar as soluções arquitetônicas.</td>
+
+</tr>
+
+</table>
+
+</div>
+
+<blockquote>
+
+O projeto foi desenvolvido entendendo que a arquitetura é um processo contínuo de observação,
+aprendizado e adaptação. As soluções apresentadas resultam da leitura do lugar e das pessoas que o
+ocupam, e não da aplicação de um modelo previamente definido.
+
+</blockquote>
+
+</section>
+
+<!-- ========================================================= -->
+<!-- BLOCO 08 — AMBIENTES                                      -->
+<!-- ========================================================= -->
+
+<section id="ambientes">
+
+<h2>Ambientes</h2>
+
+<p>
+
+As intervenções foram organizadas considerando as atividades desenvolvidas em cada espaço e sua
+importância para o funcionamento do Projeto MAARA. Em vez de propor soluções independentes, buscou-se
+estabelecer uma relação complementar entre os ambientes, formando uma infraestrutura integrada capaz
+de apoiar as diferentes frentes de atuação da instituição.
+
+</p>
+
+</section>
+
+<hr>
+
+<section id="oficina">
+
+<h2>Oficina</h2>
+
+<div class="image-large">
+
+Fotografia da oficina existente
+
+</div>
+
+<p>
+
+A oficina constitui o núcleo de apoio às atividades de manutenção, montagem e armazenamento de
+equipamentos. O estudo propõe reorganizar completamente o ambiente, criando áreas específicas para
+ferramentas, bancadas de trabalho e armazenamento de materiais.
+
+</p>
+
+<div class="grid-2">
+
+<div>
+
+<h3>Intervenções propostas</h3>
+
+<ul>
+
+<li>Nova bancada de trabalho.</li>
+
+<li>Prateleiras modulares.</li>
+
+<li>Parede em blocos de concreto.</li>
+
+<li>Melhoria da iluminação.</li>
+
+<li>Reorganização dos fluxos.</li>
+
+</ul>
+
+</div>
+
+<div>
+
+<h3>Resultados esperados</h3>
+
+<ul>
+
+<li>Maior organização.</li>
+
+<li>Melhor aproveitamento do espaço.</li>
+
+<li>Facilidade de manutenção.</li>
+
+<li>Ampliação da área útil.</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</section>
+
+<hr>
+
+<section id="atelier">
+
+<h2>Ateliê</h2>
+
+<div class="image-large">
+
+Imagem do ateliê existente
+
+</div>
+
+<p>
+
+O ateliê foi concebido como espaço destinado à produção artesanal e realização de oficinas. A proposta
+prioriza bancadas amplas, organização funcional e infraestrutura capaz de atender diferentes atividades
+simultaneamente.
+
+</p>
+
+<div class="grid-2">
+
+<div>
+
+<h3>Principais intervenções</h3>
+
+<ul>
+
+<li>Bancadas contínuas.</li>
+
+<li>Nova pia de apoio.</li>
+
+<li>Infraestrutura hidráulica.</li>
+
+<li>Nova iluminação.</li>
+
+<li>Melhoria da circulação.</li>
+
+</ul>
+
+</div>
+
+<div>
+
+<h3>Objetivos</h3>
+
+<ul>
+
+<li>Maior produtividade.</li>
+
+<li>Ambiente flexível.</li>
+
+<li>Facilidade de limpeza.</li>
+
+<li>Apoio às oficinas.</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</section>
+
+<hr>
+
+<section id="coworking">
+
+<h2>Coworking</h2>
+
+<div class="image-large">
+
+Imagem do espaço administrativo
+
+</div>
+
+<p>
+
+O coworking reúne atividades administrativas, planejamento, reuniões e apoio aos projetos
+desenvolvidos pelo MAARA. O ambiente foi reorganizado para oferecer maior conforto e flexibilidade de
+uso.
+
+</p>
+
+<div class="grid-2">
+
+<div>
+
+<h3>Intervenções</h3>
+
+<ul>
+
+<li>Novas portas em OSB.</li>
+
+<li>Mobiliário planejado.</li>
+
+<li>Bancada de apoio.</li>
+
+<li>Nova pintura.</li>
+
+<li>Iluminação.</li>
+
+</ul>
+
+</div>
+
+<div>
+
+<h3>Benefícios</h3>
+
+<ul>
+
+<li>Melhor organização.</li>
+
+<li>Maior conforto.</li>
+
+<li>Espaço para reuniões.</li>
+
+<li>Integração das equipes.</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</section>
+
+<hr>
+
+<section id="sotao">
+
+<h2>Sótão</h2>
+
+<div class="image-large">
+
+Imagem do sótão existente
+
+</div>
+
+<p>
+
+O sótão representa a principal transformação do conjunto. O espaço atualmente subutilizado passa a
+receber novas funções voltadas ao acolhimento, permanência e apoio às atividades do projeto.
+
+</p>
+
+<div class="grid-2">
+
+<div>
+
+<h3>Intervenções</h3>
+
+<ul>
+
+<li>Novas divisórias.</li>
+
+<li>Forro com isolamento térmico.</li>
+
+<li>Mobiliário em OSB.</li>
+
+<li>Novas esquadrias em madeira.</li>
+
+<li>Vidros duplos.</li>
+
+<li>Claraboia.</li>
+
+</ul>
+
+</div>
+
+<div>
+
+<h3>Resultados</h3>
+
+<ul>
+
+<li>Conforto térmico.</li>
+
+<li>Iluminação natural.</li>
+
+<li>Aproveitamento da cobertura.</li>
+
+<li>Espaço multifuncional.</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</section>
+
+<hr>
+
+<section id="area-externa">
+
+<h2>Áreas Externas</h2>
+
+<div class="image-large">
+
+Fotografia das áreas externas
+
+</div>
+
+<p>
+
+As áreas externas são compreendidas como extensão das atividades desenvolvidas nas edificações. Os
+espaços livres favorecem encontros, circulação, permanência e integração entre arquitetura e paisagem.
+
+</p>
+
+<ul>
+
+<li>Melhoria dos acessos.</li>
+
+<li>Integração entre edificações.</li>
+
+<li>Valorização da vegetação existente.</li>
+
+<li>Áreas de convivência.</li>
+
+<li>Organização dos percursos.</li>
+
+</ul>
+
+</section>
+
+<hr>
+
+<section>
+
+<h2>Síntese das Intervenções</h2>
+
+<table>
+
+<tr>
+
+<th>Ambiente</th>
+
+<th>Principal intervenção</th>
+
+</tr>
+
+<tr>
+
+<td>Oficina</td>
+
+<td>Organização e infraestrutura de trabalho.</td>
+
+</tr>
+
+<tr>
+
+<td>Ateliê</td>
+
+<td>Espaço para produção e oficinas.</td>
+
+</tr>
+
+<tr>
+
+<td>Coworking</td>
+
+<td>Ambiente administrativo e colaborativo.</td>
+
+</tr>
+
+<tr>
+
+<td>Sótão</td>
+
+<td>Requalificação completa da cobertura.</td>
+
+</tr>
+
+<tr>
+
+<td>Área Externa</td>
+
+<td>Integração entre arquitetura e paisagem.</td>
+
+</tr>
+
+</table>
+
+</section>
+
+<!-- ========================================================= -->
+<!-- BLOCO 09 — CRITÉRIOS DE PROJETO                           -->
+<!-- ========================================================= -->
+
+<section id="criterios">
+
+<h2>Critérios de Projeto</h2>
+
+<p>
+
+As decisões arquitetônicas apresentadas neste estudo não foram orientadas apenas pela estética ou pela
+forma construída. Cada escolha procura responder às necessidades funcionais do Projeto MAARA,
+considerando sua realidade financeira, sua capacidade de manutenção e seu compromisso com práticas
+regenerativas.
+
+</p>
+
+<p>
+
+Os critérios descritos a seguir constituem a base técnica utilizada para orientar materiais, sistemas
+construtivos e estratégias de implantação em todas as intervenções propostas.
+
+</p>
+
+</section>
+
+<hr>
+
+<section>
+
+<div class="numero">01</div>
+
+<h3>Materialidade</h3>
+
+<p>
+
+A proposta adota uma paleta reduzida de materiais, buscando criar unidade visual entre edificações
+existentes e novas intervenções. A repetição de poucos elementos facilita futuras ampliações,
+simplifica a execução e reduz custos de manutenção.
+
+</p>
+
+<table>
+
+<tr>
+
+<th>Material</th>
+
+<th>Aplicação</th>
+
+<th>Critério</th>
+
+</tr>
+
+<tr>
+
+<td>OSB</td>
+
+<td>Mobiliário, painéis e divisórias.</td>
+
+<td>Rapidez de execução e baixo custo.</td>
+
+</tr>
+
+<tr>
+
+<td>Madeira</td>
+
+<td>Esquadrias e elementos aparentes.</td>
+
+<td>Integração com a linguagem rural.</td>
+
+</tr>
+
+<tr>
+
+<td>Concreto</td>
+
+<td>Bancadas, bases e pisos.</td>
+
+<td>Durabilidade e baixa manutenção.</td>
+
+</tr>
+
+<tr>
+
+<td>Aço galvanizado</td>
+
+<td>Estruturas auxiliares e fixações.</td>
+
+<td>Resistência e facilidade de montagem.</td>
+
+</tr>
+
+</table>
+
+</section>
+
+<hr>
+
+<section>
+
+<div class="numero">02</div>
+
+<h3>Sistemas Construtivos</h3>
+
+<p>
+
+As soluções construtivas foram definidas para permitir execução gradual, facilidade de manutenção e
+compatibilidade com mão de obra local. Sempre que possível, evitam-se sistemas complexos que exijam
+equipamentos especializados ou manutenção frequente.
+
+</p>
+
+<div class="grid-2">
+
+<div class="card">
+
+<h4>Critérios adotados</h4>
+
+<ul>
+
+<li>Construção seca sempre que possível.</li>
+
+<li>Componentes modulares.</li>
+
+<li>Facilidade de substituição.</li>
+
+<li>Baixa geração de resíduos.</li>
+
+</ul>
+
+</div>
+
+<div class="card">
+
+<h4>Resultados esperados</h4>
+
+<ul>
+
+<li>Execução mais rápida.</li>
+
+<li>Menor desperdício.</li>
+
+<li>Facilidade de futuras adaptações.</li>
+
+<li>Redução de custos de manutenção.</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</section>
+
+<hr>
+
+<section>
+
+<div class="numero">03</div>
+
+<h3>Conforto Ambiental</h3>
+
+<p>
+
+A qualidade ambiental dos espaços é tratada como parte integrante do projeto arquitetônico. As
+intervenções procuram aproveitar iluminação natural, ventilação cruzada e isolamento térmico,
+reduzindo a dependência de sistemas artificiais.
+
+</p>
+
+<div class="grid-3">
+
+<div class="card">
+
+<h4>Iluminação</h4>
+
+<p>
+
+Ampliação das entradas de luz natural, utilização de claraboias e reorganização das aberturas.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h4>Ventilação</h4>
+
+<p>
+
+Ventilação cruzada sempre que possível, favorecendo conforto térmico e renovação do ar.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h4>Isolamento</h4>
+
+<p>
+
+Uso de isolamento térmico nas áreas de cobertura para reduzir ganhos excessivos de calor.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<hr>
+
+<section>
+
+<div class="numero">04</div>
+
+<h3>Sustentabilidade</h3>
+
+<p>
+
+A sustentabilidade do projeto é entendida principalmente como permanência e uso responsável dos
+recursos. Em vez de depender exclusivamente de tecnologias específicas, a proposta busca reduzir
+consumo de materiais, ampliar a vida útil das edificações e favorecer processos construtivos de baixo
+impacto.
+
+</p>
+
+<ul>
+
+<li>Reaproveitamento das estruturas existentes.</li>
+
+<li>Redução de demolições.</li>
+
+<li>Execução em etapas.</li>
+
+<li>Materiais de fácil manutenção.</li>
+
+<li>Aproveitamento da iluminação natural.</li>
+
+<li>Maior durabilidade das soluções adotadas.</li>
+
+</ul>
+
+</section>
+
+<hr>
+
+<section>
+
+<div class="numero">05</div>
+
+<h3>Estratégia de Implantação</h3>
+
+<p>
+
+O conjunto foi organizado para permitir crescimento gradual. Cada intervenção pode ser executada de
+forma independente, respeitando a disponibilidade de recursos e evitando interrupções significativas
+nas atividades do Projeto MAARA.
+
+</p>
+
+<div class="image-large">
+
+Diagrama das fases de implantação
+
+</div>
+
+<p class="caption">
+
+Esquema conceitual demonstrando a possibilidade de execução por etapas sem comprometer o funcionamento
+das atividades existentes.
+
+</p>
+
+</section>
+
+<!-- ========================================================= -->
+<!-- BLOCO 10 — ESTIMATIVA PRELIMINAR DE INVESTIMENTO          -->
+<!-- ========================================================= -->
+
+<section id="investimento">
+
+<h2>Estimativa Preliminar de Investimento</h2>
+
+<p>
+
+Os valores apresentados neste capítulo possuem caráter preliminar e têm como objetivo fornecer uma
+ordem de grandeza dos investimentos necessários para a implementação das intervenções propostas. As
+estimativas foram elaboradas considerando soluções compatíveis com os critérios definidos ao longo do
+estudo, priorizando racionalidade construtiva, reaproveitamento de estruturas existentes e execução
+gradual das obras.
+
+</p>
+
+<p>
+
+Os custos deverão ser revisados durante o desenvolvimento do projeto executivo, quando serão definidos
+detalhes construtivos, especificações finais, quantitativos completos e cotações atualizadas de
+materiais e serviços.
+
+</p>
+
+</section>
+
+<hr>
+
+<section>
+
+<h2>Resumo Geral</h2>
+
+<table>
+
+<tr>
+
+<th>Ambiente</th>
+
+<th>Principais intervenções</th>
+
+<th>Valor estimado</th>
+
+</tr>
+
+<tr>
+
+<td>Oficina</td>
+
+<td>Bancadas, prateleiras, parede em blocos, portas e iluminação.</td>
+
+<td>R$ 3.993,00</td>
+
+</tr>
+
+<tr>
+
+<td>Ateliê</td>
+
+<td>Bancadas, hidráulica, iluminação e infraestrutura.</td>
+
+<td>A definir em projeto executivo</td>
+
+</tr>
+
+<tr>
+
+<td>Coworking</td>
+
+<td>Mobiliário, portas em OSB, pintura e iluminação.</td>
+
+<td>A definir em projeto executivo</td>
+
+</tr>
+
+<tr>
+
+<td>Sótão</td>
+
+<td>Divisórias, isolamento, esquadrias, claraboia e mobiliário.</td>
+
+<td>Incluso na estimativa geral</td>
+
+</tr>
+
+<tr>
+
+<td>Áreas externas</td>
+
+<td>Organização dos acessos e integração entre edificações.</td>
+
+<td>A definir conforme etapas</td>
+
+</tr>
+
+</table>
+
+</section>
+
+<hr>
+
+<section>
+
+<h2>Investimento Global Estimado</h2>
+
+<div class="card">
+
+<h3>Estimativa geral das intervenções</h3>
+
+<p style="font-size:42px;margin-top:20px;margin-bottom:20px;">
+
+<strong>R$ 33.878,00</strong>
+
+</p>
+
+<p>
+
+Valor preliminar referente às intervenções arquitetônicas previstas neste estudo conceitual,
+considerando as informações disponíveis durante o desenvolvimento da proposta.
+
+</p>
+
+</div>
+
+</section>
+
+<hr>
+
+<section>
+
+<h2>Prioridades de Execução</h2>
+
+<p>
+
+Considerando a disponibilidade de recursos e a dinâmica de funcionamento do Projeto MAARA, recomenda-se
+que a implantação ocorra em etapas independentes, permitindo que cada intervenção gere benefícios
+imediatos sem comprometer o funcionamento das demais atividades.
+
+</p>
+
+<table>
+
+<tr>
+
+<th>Prioridade</th>
+
+<th>Intervenção</th>
+
+<th>Objetivo</th>
+
+</tr>
+
+<tr>
+
+<td>Etapa 01</td>
+
+<td>Oficina</td>
+
+<td>Organização da infraestrutura de apoio.</td>
+
+</tr>
+
+<tr>
+
+<td>Etapa 02</td>
+
+<td>Ateliê</td>
+
+<td>Ampliação da capacidade produtiva.</td>
+
+</tr>
+
+<tr>
+
+<td>Etapa 03</td>
+
+<td>Coworking</td>
+
+<td>Estrutura administrativa.</td>
+
+</tr>
+
+<tr>
+
+<td>Etapa 04</td>
+
+<td>Sótão</td>
+
+<td>Hospedagem e apoio às atividades.</td>
+
+</tr>
+
+<tr>
+
+<td>Etapa 05</td>
+
+<td>Áreas externas</td>
+
+<td>Integração geral do conjunto.</td>
+
+</tr>
+
+</table>
+
+</section>
+
+<hr>
+
+<section>
+
+<h2>Observações</h2>
+
+<ul>
+
+<li>Os valores possuem caráter exclusivamente preliminar.</li>
+
+<li>Não incluem projetos complementares.</li>
+
+<li>Não incluem licenças ou aprovações legais.</li>
+
+<li>Não incluem fundações adicionais eventualmente necessárias.</li>
+
+<li>Os quantitativos deverão ser revisados na fase executiva.</li>
+
+<li>Os preços poderão variar conforme fornecedores e período de contratação.</li>
+
+</ul>
+
+</section>
+
+<!-- ========================================================= -->
+<!-- BLOCO 11 — CONSIDERAÇÕES FINAIS                           -->
+<!-- ========================================================= -->
+
+<section id="consideracoes">
+
+<h2>Impactos Esperados</h2>
+
+<p>
+
+As intervenções propostas para o Projeto MAARA vão além da melhoria física das edificações. A
+requalificação dos espaços busca criar uma infraestrutura capaz de fortalecer as atividades já
+desenvolvidas pela instituição, ampliar sua capacidade de atendimento e oferecer ambientes mais
+seguros, confortáveis e preparados para receber novos projetos ao longo dos próximos anos.
+
+</p>
+
+<div class="grid-3">
+
+<div class="card">
+
+<h3>Para a equipe</h3>
+
+<p>
+
+Ambientes mais organizados, maior eficiência operacional, melhores condições de trabalho e
+infraestrutura compatível com as demandas cotidianas.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Para voluntários e parceiros</h3>
+
+<p>
+
+Espaços acolhedores, flexíveis e preparados para atividades colaborativas, oficinas, reuniões e ações
+de formação.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Para a comunidade</h3>
+
+<p>
+
+Uma estrutura capaz de ampliar o alcance das ações do MAARA, fortalecendo iniciativas ligadas à
+educação, cultura, regeneração ambiental e desenvolvimento local.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<hr>
+
+<section>
+
+<h2>Próximos Passos</h2>
+
+<p>
+
+O presente documento corresponde ao estudo conceitual da proposta arquitetônica. Sua função é orientar
+as decisões futuras e servir como base para o desenvolvimento das etapas técnicas necessárias à
+implantação do projeto.
+
+</p>
+
+<div class="card">
+
+<h3>Etapas previstas</h3>
+
+<ol>
+
+<li>Consolidação do estudo conceitual.</li>
+
+<li>Desenvolvimento do projeto executivo.</li>
+
+<li>Compatibilização dos projetos complementares.</li>
+
+<li>Planejamento financeiro e captação de recursos.</li>
+
+<li>Execução das intervenções por etapas.</li>
+
+<li>Acompanhamento técnico da obra.</li>
+
+<li>Avaliação pós-ocupação e aprimoramentos futuros.</li>
+
+</ol>
+
+</div>
+
+</section>
+
+<hr>
+
+<section>
+
+<h2>Considerações Finais</h2>
+
+<p>
+
+A arquitetura proposta para o Projeto MAARA procura responder às necessidades atuais sem limitar sua
+capacidade de transformação futura. Em vez de soluções definitivas, o projeto estabelece uma base
+flexível, capaz de acompanhar o crescimento da instituição e adaptar-se às novas demandas que surgirem
+ao longo do tempo.
+
+</p>
+
+<p>
+
+Ao priorizar o reaproveitamento das estruturas existentes, a racionalização construtiva e a execução
+por etapas, o estudo demonstra que é possível qualificar os espaços com responsabilidade técnica,
+viabilidade econômica e respeito às características do lugar.
+
+</p>
+
+<blockquote>
+
+Mais do que construir novos ambientes, este projeto busca criar condições para que as pessoas, as
+atividades e a paisagem possam continuar evoluindo em conjunto.
+
+</blockquote>
+
+</section>
+
+<hr>
+
+<section style="text-align:center; padding:80px 0 40px 0;">
+
+<h2 style="border:none;">Projeto MAARA</h2>
+
+<p>
+
+Caderno Conceitual de Arquitetura
+
+</p>
+
+<p>
+
+Estudo preliminar desenvolvido para orientar a requalificação e a expansão da infraestrutura do
+Projeto MAARA, consolidando diretrizes arquitetônicas para futuras etapas de desenvolvimento.
+
+</p>
+
+<p style="margin-top:50px; font-size:14px; color:#777;">
+
+Documento elaborado para apresentação institucional e desenvolvimento das próximas etapas do projeto.
+
+</p>
+
+</section>
+
+</main>
+
+<footer>
+
+<div class="container">
+
+<p>
+
+© 2026 • Projeto MAARA • Caderno Conceitual de Arquitetura
+
+</p>
+
+</div>
+
+</footer>
+
+</body>
+
+</html>
 
